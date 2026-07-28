@@ -1,0 +1,23 @@
+{
+  "source": "synthetic-transcript.md",
+  "items": [
+    {
+      "type": "decision",
+      "statement": "1차 적용 범위를 HWPX 자동 생성으로 정함.",
+      "source": "synthetic-transcript.md",
+      "speaker": "A",
+      "start": "00:15:10",
+      "end": "00:15:25",
+      "confidence": "high"
+    },
+    {
+      "type": "action",
+      "statement": "시범 녹음 1건으로 전체 절차를 검증함.",
+      "source": "synthetic-transcript.md",
+      "speaker": "B",
+      "start": "00:18:02",
+      "end": "00:18:15",
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/write-korean-meeting-minutes-hwpx.json",
+  "title": "한국어 회의록 HWPX 입력 스키마",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document_title",
+    "metadata",
+    "meeting_content",
+    "meeting_result",
+    "quality"
+  ],
+  "properties": {
+    "document_title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 30,
+      "default": "회 의 록",
+      "description": "문서 대제목. 기본값은 회 의 록입니다."
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agenda",
+        "datetime",
+        "responsible_org",
+        "location",
+        "participants",
+        "main_agenda"
+      ],
+      "properties": {
+        "agenda": {
+          "type": "string"
+        },
+        "datetime": {
+          "type": "string"
+        },
+        "responsible_org": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "participants": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          ]
+        },
+        "main_agenda": {
+          "type": "string"
+        }
+      },
+      "description": "회의 기본 정보입니다. 확인되지 않은 값은 임의로 만들지 않습니다."
+    },
+    "meeting_content": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "topics"
+      ],
+      "properties": {
+        "summary": {
+          "$ref": "#/$defs/point"
+        },
+        "topics": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 10,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "title",
+              "points"
+            ],
+            "properties": {
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "points": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/point"
+                }
+              }
+            }
+          }
+        }
+      },
+      "description": "회의 요지와 주제별 주요 논의입니다."
+    },
+    "meeting_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary_points",
+        "action_items",
+        "review_items"
+      ],
+      "properties": {
+        "summary_points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/point"
+          }
+        },
+        "action_items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/action"
+          }
+        },
+        "review_items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/point"
+          }
+        }
+      },
+      "description": "회의 결과 요약, 후속 조치, 확인 필요 사항입니다."
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "missing_metadata",
+        "ambiguous_terms",
+        "asr_risk"
+      ],
+      "properties": {
+        "missing_metadata": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "ambiguous_terms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "asr_risk": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "description": "누락 정보와 음성인식 위험을 기록합니다."
+    }
+  },
+  "$defs": {
+    "point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "emphasis",
+        "important"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1200
+        },
+        "emphasis": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "important": {
+          "type": "boolean"
+        }
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task",
+        "owner",
+        "deadline",
+        "status",
+        "emphasis",
+        "important"
+      ],
+      "properties": {
+        "task": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 800
+        },
+        "owner": {
+          "type": "string"
+        },
+        "deadline": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "emphasis": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "important": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "description": "회의록 문안과 HWPX 강조 정보를 구조화하는 내부 데이터 형식입니다. 키 이름은 스크립트 호환성을 위해 영어로 유지합니다."
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "한국어 회의록 HWPX 작성"
+  short_description: "전사 근거로 공식 한국어 회의록 HWPX를 작성합니다"
+  default_prompt: "Use $write-korean-meeting-minutes-hwpx to turn this Korean meeting transcript into a verified HWPX meeting record."
