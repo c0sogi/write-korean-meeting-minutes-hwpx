@@ -90,7 +90,19 @@ def remove_lineseg(paragraph: ET.Element) -> None:
 
 def replace_runs(paragraph: ET.Element, segments: Iterable[tuple[str, str]]) -> ET.Element:
     for child in list(paragraph):
-        if child.tag in {qname(HP, "run"), qname(HP, "linesegarray")}:
+        if child.tag == qname(HP, "run"):
+            # Section/page and column settings share a run with the title.
+            # Replace its text without discarding document layout controls.
+            for item in list(child):
+                is_layout = item.tag == qname(HP, "secPr") or (
+                    item.tag == qname(HP, "ctrl")
+                    and item.find(qname(HP, "colPr")) is not None
+                )
+                if not is_layout:
+                    child.remove(item)
+            if not len(child):
+                paragraph.remove(child)
+        elif child.tag == qname(HP, "linesegarray"):
             paragraph.remove(child)
 
     for char_pr_id, text in segments:
@@ -550,7 +562,7 @@ def main() -> None:
             "bytes": output.stat().st_size,
             "blue": BLUE,
             "styles": styles,
-            "note": "XML과 HWPX 패키지 검사를 통과했습니다. 실제 페이지 흐름은 한컴오피스에서 확인해야 합니다.",
+            "note": "XML과 HWPX 패키지 검사를 통과했습니다.",
         }
     )
 

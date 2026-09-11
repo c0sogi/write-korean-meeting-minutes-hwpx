@@ -254,7 +254,7 @@ def main() -> None:
                 "metrics": metrics,
                 "errors": errors,
                 "warnings": warnings,
-                "note": "구조/XML/텍스트 검증 결과이며, 한컴오피스 시각 검수는 별도입니다.",
+                "note": "구조/XML/텍스트 및 제목·강조 서식 검증 결과입니다.",
             },
             ensure_ascii=False,
             indent=2,
