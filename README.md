@@ -1,5 +1,8 @@
 # write-korean-meeting-minutes-hwpx
 
+> [!IMPORTANT]
+> 이 저장소는 보관 처리되어 더 이상 업데이트되지 않습니다. 이 스킬은 [c0sogi/plugins](https://github.com/c0sogi/plugins)의 `hwpx` 플러그인에 `meeting-minutes`라는 이름으로 옮겨졌습니다. 설치 방법은 [새 저장소의 README](https://github.com/c0sogi/plugins#설치)를 참고하세요.
+
 한국어 회의 음성·영상 또는 전사 Markdown을 근거로 공식 회의록을 구성하고 HWPX로 생성하는 Claude Code/Codex 플러그인이자 Agent Skill입니다.
 
 ## 주요 기능
