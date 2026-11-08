@@ -1,0 +1,20 @@
+{
+  "name": "c0sogi-hwpx",
+  "interface": {
+    "displayName": "c0sogi HWPX"
+  },
+  "plugins": [
+    {
+      "name": "write-korean-meeting-minutes-hwpx",
+      "source": {
+        "source": "local",
+        "path": "./plugins/write-korean-meeting-minutes-hwpx"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # write-korean-meeting-minutes-hwpx
 
-한국어 회의 음성·영상 또는 전사 Markdown을 근거로 공식 회의록을 구성하고 HWPX로 생성하는 Codex/Agent Skill입니다.
+한국어 회의 음성·영상 또는 전사 Markdown을 근거로 공식 회의록을 구성하고 HWPX로 생성하는 Claude Code/Codex 플러그인이자 Agent Skill입니다.
 
 ## 주요 기능
 
@@ -23,20 +23,40 @@
 
 ## 설치
 
-저장소 안의 `write-korean-meeting-minutes-hwpx/` 폴더 전체를 사용하는 에이전트의 스킬 디렉터리에 복사합니다. 최종 폴더명과 `SKILL.md`의 `name`은 같아야 합니다.
+Claude Code:
+
+```bash
+claude plugin marketplace add c0sogi/write-korean-meeting-minutes-hwpx
+claude plugin install write-korean-meeting-minutes-hwpx@c0sogi-hwpx
+```
+
+Codex:
+
+```bash
+codex plugin marketplace add c0sogi/write-korean-meeting-minutes-hwpx
+codex plugin add write-korean-meeting-minutes-hwpx@c0sogi-hwpx
+```
+
+설치 후 새 세션을 시작하면 스킬을 사용할 수 있습니다.
+
+다른 에이전트에서는 저장소 안의 `plugins/write-korean-meeting-minutes-hwpx/skills/write-korean-meeting-minutes-hwpx/` 폴더 전체를 사용하는 에이전트의 스킬 디렉터리에 복사합니다. 최종 폴더명과 `SKILL.md`의 `name`은 같아야 합니다.
 
 ## 검증
 
 스킬 폴더를 현재 디렉터리로 두고 실행합니다.
 
 ```bash
-cd write-korean-meeting-minutes-hwpx
+cd plugins/write-korean-meeting-minutes-hwpx/skills/write-korean-meeting-minutes-hwpx
 uv run scripts/self_test.py
 ```
 
 자체 테스트는 네트워크나 음성인식 API를 호출하지 않고 전사 Markdown 검사, JSON 검증, HWPX 생성과 구조 검증을 수행합니다. 반복 생성과 별도 템플릿 사용 시에도 여백 및 줄 나눔 설정이 유지되는지 확인합니다. 문서 작성·검증에 한컴오피스 실행이나 화면 자동화를 사용하지 않습니다.
 
 기본 템플릿은 한글을 글자 단위, 영문을 단어 단위로 줄 나눔하며, 용지 여백은 왼쪽 약 10.1mm·오른쪽 약 10.6mm입니다. 별도 템플릿을 제공하면 해당 템플릿의 설정을 유지합니다.
+
+## 배포
+
+새 버전을 배포할 때는 `plugins/write-korean-meeting-minutes-hwpx/` 아래 `.claude-plugin/plugin.json`과 `.codex-plugin/plugin.json`의 `version`을 함께 올립니다. 값을 그대로 두면 Claude Code 사용자에게 업데이트가 전달되지 않습니다.
 
 ## 주의사항
 

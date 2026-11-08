@@ -43,7 +43,7 @@ description: 한국어 회의 음성·영상, meetdown 전사 Markdown, 회의 �
 
 ## 사용할 스크립트
 
-모든 경로는 스킬 루트를 기준으로 한다.
+모든 경로는 스킬 루트를 기준으로 한다. 플러그인으로 설치하면 스킬 루트가 작업 폴더 밖의 캐시에 있으므로, 입력·출력 파일은 사용자 작업 폴더의 절대경로로 지정하고 산출물을 스킬 폴더 안에 저장하지 않는다.
 
 - `scripts/transcribe.py`: meetdown을 비대화형으로 실행하고 비밀값을 보호한다.
 - `scripts/inspect_transcript.py`: meetdown Markdown의 구조와 위험 요소를 검사한다.

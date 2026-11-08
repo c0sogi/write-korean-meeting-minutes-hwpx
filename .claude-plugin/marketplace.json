@@ -1,0 +1,17 @@
+{
+  "name": "c0sogi-hwpx",
+  "owner": {
+    "name": "c0sogi",
+    "url": "https://github.com/c0sogi"
+  },
+  "metadata": {
+    "description": "한국어 HWPX 문서 작성 플러그인"
+  },
+  "plugins": [
+    {
+      "name": "write-korean-meeting-minutes-hwpx",
+      "source": "./plugins/write-korean-meeting-minutes-hwpx",
+      "description": "한국어 회의 음성·영상, 전사 Markdown, 회의 메모를 근거로 공식 회의록 HWPX를 작성하고 검증합니다."
+    }
+  ]
+}

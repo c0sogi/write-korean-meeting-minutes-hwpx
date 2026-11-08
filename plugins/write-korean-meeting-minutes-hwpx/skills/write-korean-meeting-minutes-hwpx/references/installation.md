@@ -1,8 +1,26 @@
 # 설치 및 사용 안내
 
-## 1. 설치 위치
+## 1. 설치
 
-스킬 폴더 전체를 사용하는 에이전트의 스킬 디렉터리에 복사한다. 설치 위치와 관계없이 아래 명령은 스킬 루트를 현재 디렉터리로 둔 상대경로로 실행한다.
+### 플러그인
+
+Claude Code:
+
+```bash
+claude plugin marketplace add c0sogi/write-korean-meeting-minutes-hwpx
+claude plugin install write-korean-meeting-minutes-hwpx@c0sogi-hwpx
+```
+
+Codex:
+
+```bash
+codex plugin marketplace add c0sogi/write-korean-meeting-minutes-hwpx
+codex plugin add write-korean-meeting-minutes-hwpx@c0sogi-hwpx
+```
+
+### 스킬 폴더 복사
+
+플러그인을 지원하지 않는 에이전트에서는 스킬 폴더 전체를 사용하는 에이전트의 스킬 디렉터리에 복사한다.
 
 ```text
 write-korean-meeting-minutes-hwpx/
@@ -23,8 +41,9 @@ write-korean-meeting-minutes-hwpx/SKILL.md
 
 ## 2. 설치 확인
 
+설치 방법과 관계없이 아래 명령은 스킬 루트를 현재 디렉터리로 두고 실행한다. 플러그인으로 설치했다면 스킬 루트는 에이전트의 플러그인 캐시 안에 있다.
+
 ```bash
-cd write-korean-meeting-minutes-hwpx
 uv run scripts/validate_skill.py .
 ```
 

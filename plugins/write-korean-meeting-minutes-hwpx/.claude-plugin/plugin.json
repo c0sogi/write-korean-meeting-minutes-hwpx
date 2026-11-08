@@ -1,0 +1,13 @@
+{
+  "name": "write-korean-meeting-minutes-hwpx",
+  "version": "0.3.0",
+  "description": "한국어 회의 음성·영상, 전사 Markdown, 회의 메모를 근거로 공식 회의록 HWPX를 작성하고 검증합니다.",
+  "author": {
+    "name": "c0sogi",
+    "url": "https://github.com/c0sogi"
+  },
+  "homepage": "https://github.com/c0sogi/write-korean-meeting-minutes-hwpx",
+  "repository": "https://github.com/c0sogi/write-korean-meeting-minutes-hwpx",
+  "license": "MIT",
+  "keywords": ["korean", "meeting-minutes", "hwpx", "transcription"]
+}

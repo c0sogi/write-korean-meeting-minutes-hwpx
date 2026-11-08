@@ -1,0 +1,28 @@
+{
+  "name": "write-korean-meeting-minutes-hwpx",
+  "version": "0.3.0",
+  "description": "한국어 회의 음성·영상, 전사 Markdown, 회의 메모를 근거로 공식 회의록 HWPX를 작성하고 검증합니다.",
+  "author": {
+    "name": "c0sogi",
+    "url": "https://github.com/c0sogi"
+  },
+  "homepage": "https://github.com/c0sogi/write-korean-meeting-minutes-hwpx",
+  "repository": "https://github.com/c0sogi/write-korean-meeting-minutes-hwpx",
+  "license": "MIT",
+  "keywords": ["korean", "meeting-minutes", "hwpx", "transcription"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "한국어 회의록 HWPX 작성",
+    "shortDescription": "전사 근거로 공식 한국어 회의록 HWPX를 작성합니다",
+    "longDescription": "한국어 회의 음성·영상, meetdown 전사 Markdown, 회의 메모를 근거로 공식 회의록을 구성해 HWPX로 생성하고 검증합니다. 제안·우려·결정·후속 조치를 구분하고, 확인되지 않은 일시·참석자·담당자·기한은 추정하지 않습니다.",
+    "developerName": "c0sogi",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "websiteURL": "https://github.com/c0sogi/write-korean-meeting-minutes-hwpx",
+    "defaultPrompt": [
+      "이 회의 전사본으로 공식 회의록 HWPX를 만들어줘",
+      "이 녹음을 전사해서 결정 사항과 후속 조치 중심의 회의록 HWPX를 만들어줘",
+      "첨부한 HWPX 양식을 유지하면서 새 전사본 내용으로 회의록을 교체해줘"
+    ]
+  }
+}
